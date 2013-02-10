@@ -11,6 +11,7 @@
 #define GAME_OF_LIFE
 
 #include "Statistics.h"
+#include "LifeGeneration.h"
 
 
 //! EnumState enumeration.
