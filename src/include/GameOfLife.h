@@ -64,7 +64,18 @@ class GameOfLife {
   void killEnvironment();
   bool shouldRevive(int w, int h);
   bool shouldKill(int w, int h);
+    //LifeGeneration* lifegeneration;       *test
  public:
+    /*test
+    void NewGeneration(){
+        this->lifegeneration->NextGeneration();
+    };
+    
+    void SetGeneration(LifeGeneration* lifegeneration){
+        this->lifegeneration = lifegeneration;
+    };
+     
+     test*/
   /*! Constructor, taking the number of columns and rows */
   GameOfLife(int w, int h);
 

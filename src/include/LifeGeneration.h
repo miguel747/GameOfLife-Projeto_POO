@@ -10,6 +10,7 @@
 #define GameofLife_LifeGeneration_h
 
 class   LifeGeneration{
+public:
     virtual void NextGeneration()=0;
     
 };
