@@ -9,15 +9,26 @@
 #ifndef GameofLife_LifeGeneration_h
 #define GameofLife_LifeGeneration_h
 
-class   LifeGeneration{
+#include "GameOfLife.h"
+
+//interface-strategy
+class LifeGeneration{
 public:
     virtual void NextGeneration()=0;
     
 };
+
+
+//concrete strategy
 class Default : public LifeGeneration{
-    void NextGeneration();
+public:
+    Default();
+    void NextGeneration(GameOfLife& a);
 };
+
 class HighLife : public LifeGeneration{
-    void NextGeneration();
+public:
+    HighLife();
+    void NextGeneration(GameOfLife& a);
 };
 #endif

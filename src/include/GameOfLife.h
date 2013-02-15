@@ -7,12 +7,12 @@
  * @author Rodrigo Bonifacio (rbonifacio[at]cic.unb.br)
  * @date 05/2011
  */
+
 #ifndef GAME_OF_LIFE
 #define GAME_OF_LIFE
 
 #include "Statistics.h"
 #include "LifeGeneration.h"
-
 
 //! EnumState enumeration.
 /*! Define the valid states of a cell. */
@@ -58,15 +58,12 @@ class Cell {
  */
 class GameOfLife {
  private:
-  int width, height;
-  Statistics* statistics;
-  Cell** cells;
-  void killEnvironment();
-  bool shouldRevive(int w, int h);
-  bool shouldKill(int w, int h);
-    //LifeGeneration* lifegeneration;       *test
+    int width, height;
+    Statistics* statistics;
+    Cell** cells;
+    LifeGeneration* lifegeneration;
  public:
-    /*test
+    
     void NewGeneration(){
         this->lifegeneration->NextGeneration();
     };
@@ -74,8 +71,18 @@ class GameOfLife {
     void SetGeneration(LifeGeneration* lifegeneration){
         this->lifegeneration = lifegeneration;
     };
-     
-     test*/
+    
+    //tornei publicos
+    void killEnvironment();
+    bool shouldRevive(int w, int h);
+    bool shouldKill(int w, int h);
+    
+    //metodos de capturar os valores privados
+    int Getwidth()const{return width;}; int Getheight()const{return height;}; Statistics* Getstatics()const{return statistics;};
+    
+    //contrutor padrao
+    GameOfLife();
+
   /*! Constructor, taking the number of columns and rows */
   GameOfLife(int w, int h);
 
@@ -95,7 +102,7 @@ class GameOfLife {
   void makeCellDead(int w, int h);
 
   /*! Leads the game state to a next generation */
-  void nextGeneration();
+  //void nextGeneration();
 
   /*! Access method to the number of columns */
   int getWidth() const { return width; }

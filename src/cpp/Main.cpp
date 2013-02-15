@@ -6,6 +6,7 @@ using namespace std;
 #include "../include/GameOfLife.h"
 #include "../include/GameBoard.h"
 #include "../include/Controller.h"
+#include "../include/LifeGeneration.h"
 
 const int rows = 10;
 const int cols = 10;

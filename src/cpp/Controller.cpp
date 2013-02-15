@@ -3,14 +3,16 @@
 using namespace std;
 
 #include "../include/Controller.h" 
+#include "../include/LifeGeneration.h"
 
 void Controller::startGame() {
 
   while(true) {
-    cout << "Select one option: " << endl << endl;
-    cout << "[1] Cell revive " << endl;
-    cout << "[2] Next generation " << endl; 
-    cout << "[3] Halt " << endl << endl;
+      cout << "Select one option: " << endl << endl;
+      cout << "[1] Cell revive " << endl;
+      cout << "[2] Next generation - Default " << endl;
+      cout << "[3] Next generation - HighLife" << endl;
+      cout << "[4] Halt " << endl << endl;
     
     int menu = 0;
     
@@ -18,9 +20,10 @@ void Controller::startGame() {
     
     cin >> menu;
     switch(menu) {
-     case 1: revive(); break;
-     case 2: nextGeneration(); break;
-     case 3: return; 
+        case 1: revive(); break;
+        case 2: NGDefault(); break;
+        case 3: NGHighLife(); break;
+        case 4: return;
      defaut: cout << endl << "Opcao invalida. Tente novamente." << endl << endl;
     } 
   }
@@ -59,7 +62,13 @@ void Controller::revive() {
    board.update(game);
 }
 
-void Controller::nextGeneration() {
-  game.nextGeneration();
-  board.update(game);
+void Controller::NGDefault(){
+    game.SetGeneration(new Default());
+    game.NewGeneration();
+    board.update(game);
+}
+
+void Controller::NGHighLife(){
+    game.SetGeneration(new HighLife());
+    board.update(game);
 }

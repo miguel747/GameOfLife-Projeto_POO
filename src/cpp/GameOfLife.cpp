@@ -23,7 +23,10 @@ bool Cell::isAlive() {
   return state == ALIVE;
 }
 
-GameOfLife::GameOfLife(int w, int h) {
+GameOfLife::GameOfLife(){
+}
+
+GameOfLife::GameOfLife(int w, int h){
   width = w;
   height = h;
   
@@ -112,31 +115,9 @@ void GameOfLife::makeCellDead(int w, int h) {
   statistics->kill();
 }
 
-void GameOfLife::nextGeneration() {
-  list<Cell*> mustRevive;
-  list<Cell*> mustDie;
-
-  for(int i = 0; i < height; i++) {
-    for(int j = 0; j < width; j++) {
-      if(shouldRevive(j,i)) {
-      	mustRevive.push_back(cells[i*width+j]);
-      }
-      else if (shouldKill(j,i)) {
-      	mustDie.push_back(cells[i*width+j]);
-      }
-    }
-  }
-
-  for (list<Cell*>::iterator it = mustRevive.begin(); it != mustRevive.end(); it++) {
-    (*it)->revive();
-    statistics->survive();
-  }
-
-  for (list<Cell*>::iterator it = mustDie.begin(); it != mustDie.end(); it++) {
-    (*it)->kill();
-     statistics->kill();
-  }
-}
+//void GameOfLife::nextGeneration() {
+  //retirei o metodo
+//}
 
  /* Usando o TM, deveriamos tornar shouldRevive e 
   * shouldKill abstratos.

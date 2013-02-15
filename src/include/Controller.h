@@ -27,8 +27,9 @@ class Controller{
   GameOfLife& game;
   GameBoard& board;
   void revive();
-  void nextGeneration();
- public:
+    void NGDefault();
+    void NGHighLife();
+public:
   /*! Controller constructor, taking a game instance (model) and a game board (view) */
   Controller(GameOfLife& g, GameBoard& b) : game(g), board(b) {} 
   
