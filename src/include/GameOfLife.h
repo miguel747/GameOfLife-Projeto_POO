@@ -56,6 +56,7 @@ class Cell {
  *  whereas the Statics class could be one subscriber 
  *  participant of the Observer pattern.   
  */
+
 class GameOfLife {
  private:
     int width, height;
@@ -81,7 +82,7 @@ class GameOfLife {
     int Getwidth()const{return width;}; int Getheight()const{return height;}; Statistics* Getstatics()const{return statistics;};
     
     //contrutor padrao
-    GameOfLife();
+    //GameOfLife();
 
   /*! Constructor, taking the number of columns and rows */
   GameOfLife(int w, int h);

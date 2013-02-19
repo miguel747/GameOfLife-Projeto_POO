@@ -70,5 +70,6 @@ void Controller::NGDefault(){
 
 void Controller::NGHighLife(){
     game.SetGeneration(new HighLife());
+    game.NewGeneration();
     board.update(game);
 }

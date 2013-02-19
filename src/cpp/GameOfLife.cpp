@@ -5,8 +5,6 @@ using namespace std;
 
 #include "../include/GameOfLife.h"
 
-
-
 Cell::Cell(){ 
   state = ALIVE;
 }
@@ -23,8 +21,8 @@ bool Cell::isAlive() {
   return state == ALIVE;
 }
 
-GameOfLife::GameOfLife(){
-}
+//GameOfLife::GameOfLife(){
+//}
 
 GameOfLife::GameOfLife(int w, int h){
   width = w;
@@ -38,9 +36,10 @@ GameOfLife::GameOfLife(int w, int h){
     }
   }
   
-  killEnvironment();
+    killEnvironment();
   
-  statistics = new Statistics();
+    statistics = new Statistics();
+    lifegeneration = new Default();
 }
 
 void GameOfLife::killEnvironment() {
