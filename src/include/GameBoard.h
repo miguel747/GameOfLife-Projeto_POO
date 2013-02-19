@@ -11,7 +11,6 @@
 #define GAME_BOARD_H
 
 #include <string>
-using namespace std;
 
 #include "GameOfLife.h"
 

@@ -1,14 +1,15 @@
 //
-//  LifeGeneration.cpp
+//  LGDefault.cpp
 //  GameofLife
 //
-//  Created by Filipe Ribeiro on 10/02/13.
+//  Created by Filipe Ribeiro on 19/02/13.
 //  Copyright (c) 2013 Filipe Ribeiro. All rights reserved.
 //
 
-#include "../include/LifeGeneration.h"
-#include <list>
+#include "LifeGeneration.h"
+#include "GameOfLife.h"
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -17,13 +18,13 @@ void Default::NextGeneration(GameOfLife& a){
     list<Cell*> mustRevive;
     list<Cell*> mustDie;
     
-    for(int i = 0; i < a.Getheight(); i++) {
-        for(int j = 0; j < a.Getwidth(); j++) {
+    for(int i = 0; i < a.getHeight(); i++) {
+        for(int j = 0; j < a.getWidth(); j++) {
             if(a.shouldRevive(j,i)) {
-                mustRevive.push_back(&cells[i*(a.Getwidth())+j]);
+                mustRevive.push_back(&cells[i*(a.getWidth())+j]);
             }
             else if (a.shouldKill(j,i)) {
-                mustDie.push_back(&cells[i*(a.Getwidth())+j]);
+                mustDie.push_back(&cells[i*(a.getWidth())+j]);
             }
         }
     }
@@ -37,8 +38,4 @@ void Default::NextGeneration(GameOfLife& a){
         (*it)->kill();
         a.Getstatics()->kill();
     }
-}
-void HighLife::NextGeneration(GameOfLife& a){
-    cout <<"Ainda não implementada"<<endl;
-    return;
 }

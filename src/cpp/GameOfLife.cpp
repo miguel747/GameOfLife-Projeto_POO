@@ -4,8 +4,10 @@
 using namespace std;
 
 #include "../include/GameOfLife.h"
+#include "../include/LifeGeneration.h"
+#include "../include/Statistics.h"
 
-Cell::Cell(){ 
+Cell::Cell(){
   state = ALIVE;
 }
 
@@ -27,17 +29,17 @@ bool Cell::isAlive() {
 GameOfLife::GameOfLife(int w, int h){
   width = w;
   height = h;
-  
+
   cells = new Cell*[w*h];
-  
+
   for(int i = 0; i < height; i++) {
     for(int j = 0; j < width; j++) {
       cells[i*width + j] = new Cell();
     }
   }
-  
+
     killEnvironment();
-  
+
     statistics = new Statistics();
     lifegeneration = new Default();
 }
@@ -66,7 +68,7 @@ int GameOfLife::aliveCells() {
 int GameOfLife::aliveNeighborCells(int w, int h) {
   if(w < 0 || w >= width) return 0;
   if(h < 0 || h >= height) return 0;
-  
+
   int r = 0;
 
   for(int i = h-1; i <= h + 1; i++) {
@@ -118,15 +120,15 @@ void GameOfLife::makeCellDead(int w, int h) {
   //retirei o metodo
 //}
 
- /* Usando o TM, deveriamos tornar shouldRevive e 
+ /* Usando o TM, deveriamos tornar shouldRevive e
   * shouldKill abstratos.
-  */ 
+  */
 
 /*
- * Uma celula morta deve ressuscitar caso 
+ * Uma celula morta deve ressuscitar caso
  * tenha tres celulas vizinhas vivas.
 
- */ 
+ */
 bool GameOfLife::shouldRevive(int w, int h) {
   int aliveNeighbors = aliveNeighborCells(w,h);
 
@@ -134,13 +136,16 @@ bool GameOfLife::shouldRevive(int w, int h) {
 }
 
 /*
- * Uma celula viva deve morrer caso 
+ * Uma celula viva deve morrer caso
  * tenha duas ou tres celulas vizinhas vivas.
- */ 
+ */
 bool GameOfLife::shouldKill(int w, int h) {
   int aliveNeighbors = aliveNeighborCells(w,h);
 
   return (isCellAlive(w,h) && (aliveNeighbors != 2 && aliveNeighbors != 3));
 }
-
+//metodo para acionar a nova geracao
+void GameOfLife::NewGeneration(){
+    this->lifegeneration->NextGeneration(this);
+}
 
