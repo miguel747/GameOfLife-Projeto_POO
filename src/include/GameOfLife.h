@@ -64,23 +64,19 @@ class GameOfLife {
     Cell** cells;
     LifeGeneration* lifegeneration;
  public:
-
+    
+    //metodos strategies
     void NewGeneration();
-
-    void SetGeneration(LifeGeneration* lifegeneration){
-        this->lifegeneration = lifegeneration;
-    };
-
+    void SetGeneration(LifeGeneration* lifegeneration);
+    
     //tornei publicos
     void killEnvironment();
     bool shouldRevive(int w, int h);
     bool shouldKill(int w, int h);
 
     //metodos de capturar os valores privados
+    Cell& GetCells(int w, int h);
     Statistics* Getstatics()const{return statistics;};
-
-    //contrutor padrao
-    //GameOfLife();
 
   /*! Constructor, taking the number of columns and rows */
   GameOfLife(int w, int h);

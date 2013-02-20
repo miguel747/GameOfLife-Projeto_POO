@@ -23,9 +23,6 @@ bool Cell::isAlive() {
   return state == ALIVE;
 }
 
-//GameOfLife::GameOfLife(){
-//}
-
 GameOfLife::GameOfLife(int w, int h){
   width = w;
   height = h;
@@ -43,7 +40,6 @@ GameOfLife::GameOfLife(int w, int h){
     statistics = new Statistics();
     lifegeneration = new Default();
 }
-
 void GameOfLife::killEnvironment() {
   for(int i = 0; i < height; i++) {
     for(int j = 0; j < width; j++) {
@@ -144,8 +140,16 @@ bool GameOfLife::shouldKill(int w, int h) {
 
   return (isCellAlive(w,h) && (aliveNeighbors != 2 && aliveNeighbors != 3));
 }
-//metodo para acionar a nova geracao
+
+void GameOfLife::SetGeneration(LifeGeneration *lifegeneration)
+{
+    this->lifegeneration = lifegeneration;
+}
+
 void GameOfLife::NewGeneration(){
     this->lifegeneration->NextGeneration(this);
 }
-
+//Load Cell from matriz Cell**
+Cell& GameOfLife::GetCells(int w, int h){
+    return *cells[h * width + w];
+}

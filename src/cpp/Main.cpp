@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main() {
   cout << " \\____/\\__,_|_| |_| |_|\\___|\\___/|_| \\_____/|_|_| \\___|" << endl << endl << endl;
 
   cout << "Bem vindo, essa eh a versao C++ do jogo GameOfLife " << endl;
-  cout << "escrita por Rodrigo Bonifacio (CiC, UnB) como um desafio " << endl; 
+  cout << "escrita por Rodrigo Bonifacio (CiC, UnB) como um desafio " << endl;
   cout << "para ensinar padroes de projetos." << endl << endl;
   cout << "De forma proposital, existem falhas no design dessa aplicacao." << endl;
   cout << "O objetivo eh fazer com que os alunos resolvam, de uma forma " << endl;
@@ -34,7 +35,7 @@ int main() {
   Controller controller(game, board);
 
   controller.startGame();
-  
+
 }
 
 

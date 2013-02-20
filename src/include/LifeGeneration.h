@@ -15,18 +15,21 @@ class GameOfLife;
 class LifeGeneration{
 private:
 public:
-    virtual void NextGeneration()=0;
+    virtual void NextGeneration(GameOfLife* a)=0;
+
 };
 
 
 //concrete strategy
 class Default : public LifeGeneration{
 public:
-    void NextGeneration(GameOfLife& a);
+    Default();
+    void NextGeneration(GameOfLife* a);
 };
 
 class HighLife : public LifeGeneration{
 public:
-    void NextGeneration(GameOfLife& a);
+    HighLife();
+    void NextGeneration(GameOfLife* a);
 };
 #endif

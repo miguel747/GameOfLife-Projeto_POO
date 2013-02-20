@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#include "../include/Controller.h" 
+#include "../include/Controller.h"
 #include "../include/LifeGeneration.h"
 
 void Controller::startGame() {
@@ -13,11 +13,11 @@ void Controller::startGame() {
       cout << "[2] Next generation - Default " << endl;
       cout << "[3] Next generation - HighLife" << endl;
       cout << "[4] Halt " << endl << endl;
-    
+
     int menu = 0;
-    
+
     cout << "Opcao: " ;
-    
+
     cin >> menu;
     switch(menu) {
         case 1: revive(); break;
@@ -25,7 +25,7 @@ void Controller::startGame() {
         case 3: NGHighLife(); break;
         case 4: return;
      defaut: cout << endl << "Opcao invalida. Tente novamente." << endl << endl;
-    } 
+    }
   }
 }
 
@@ -57,7 +57,7 @@ void Controller::revive() {
 
      if(c == -1) return;
    }
-   
+
    game.makeCellAlive(c, r);
    board.update(game);
 }
